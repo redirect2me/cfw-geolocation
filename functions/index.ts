@@ -1,8 +1,7 @@
-import { KVNamespace, PagesFunction } from '@cloudflare/workers-types';
+import { PagesFunction } from '@cloudflare/workers-types';
 
 
 export async function onRequest(pageContext: PagesFunction) {
-console.log(pageContext.request);
   const html = `<html>
     <head>
         <meta charset="utf-8">

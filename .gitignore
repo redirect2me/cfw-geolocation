@@ -4,6 +4,7 @@ crash.log
 .DS_Store
 .env
 .idea/
+node_modules/
 server
 tmp/
 _tmp/
