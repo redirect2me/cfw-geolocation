@@ -1,0 +1,9 @@
+#
+# robots.txt for redirect2.me's geolocation servers
+#
+#
+# not much here, but feel free to index it
+#
+
+User-Agent: *
+Allow: /

@@ -1,0 +1,9 @@
+*~
+.cache
+crash.log
+.DS_Store
+.env
+.idea/
+server
+tmp/
+_tmp/
