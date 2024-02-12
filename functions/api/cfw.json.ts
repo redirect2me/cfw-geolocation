@@ -15,5 +15,6 @@ export async function onRequest(pageContext: PagesFunction) {
         "text": `${cf.city}, ${cf.region}, ${cf.country}`,
         "iata": cf.colo,
         "TZ": cf.timezone,
+        "raw": cf,
     });
 }
