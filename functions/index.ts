@@ -8,6 +8,7 @@ export async function onRequest(pageContext: PagesFunction) {
         <title>CloudFlare Workers Geolocation - Resolve.rs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     </head>
     <body>
         <h1>

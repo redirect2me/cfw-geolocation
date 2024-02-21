@@ -8,6 +8,9 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+echo "{\"commit\":\"$(git rev-parse --short HEAD)\",\"lastmod\":\"$(date -u  +%Y-%m-%dT%H:%M:%SZ)\"}" >build.json
+exit 0
+
 
 echo '{}' \
     | jq --arg COMMIT $(git rev-parse --short HEAD) '.commit|=$COMMIT' \
