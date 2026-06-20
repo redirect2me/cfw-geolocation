@@ -1,7 +1,6 @@
-import { PagesFunction } from '@cloudflare/workers-types';
 
 
-export async function onRequest(pageContext: PagesFunction) {
+export async function index(req: Request) {
   const html = `<html>
     <head>
         <meta charset="utf-8">
@@ -19,21 +18,21 @@ export async function onRequest(pageContext: PagesFunction) {
             Determine your real (physical) location based on your IP address, powered by CloudFlare Workers.
         </p>
         <p>
-            Your IP address: ${pageContext.request.headers.get('CF-Connecting-IP') }
+            Your IP address: ${req.headers.get('CF-Connecting-IP') }
         </p>
         <p>
-            Country: ${pageContext.request.cf.country}<br/>
-            Region: ${pageContext.request.cf.region}<br/>
-            City: ${pageContext.request.cf.city}<br/>
-            Latitude/Longitude: ${pageContext.request.cf.latitude},
-              ${pageContext.request.cf.longitude}<br/>
-            Timezone: ${pageContext.request.cf.timezone}<br/>
-            Airport: ${pageContext.request.cf.colo}<br/>
+            Country: ${req.cf.country}<br/>
+            Region: ${req.cf.region}<br/>
+            City: ${req.cf.city}<br/>
+            Latitude/Longitude: ${req.cf.latitude},
+              ${req.cf.longitude}<br/>
+            Timezone: ${req.cf.timezone}<br/>
+            Airport: ${req.cf.colo}<br/>
 
         </p>
         <details><summary>Raw Data</summary>
-          <pre>${JSON.stringify(pageContext.request.headers)}</pre> 
-          <pre>${JSON.stringify(pageContext.request.cf, null, 2)}</pre> 
+          <pre>${JSON.stringify(req.headers)}</pre> 
+          <pre>${JSON.stringify(req.cf, null, 2)}</pre> 
 
         </details>
         <p>

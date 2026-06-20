@@ -1,10 +1,9 @@
-import { PagesFunction } from '@cloudflare/workers-types';
 import { handleJsonp } from '../src/handleJsonp';
 import buildInfo from '../build.json';
 
-export async function onRequest(pageContext: PagesFunction) {
+export async function status(req: Request) {
 
-    return handleJsonp(pageContext, {
+    return handleJsonp(req, {
         "success": true,
         "message": "OK",
         "lastmod": buildInfo.lastmod,

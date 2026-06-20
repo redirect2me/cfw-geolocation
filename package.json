@@ -12,6 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cloudflare/workers-types": "^4.20240208.0"
+    "@cloudflare/workers-types": "^4.20260619.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.103.0"
   }
 }

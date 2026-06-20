@@ -1,20 +1,19 @@
-import { PagesFunction } from '@cloudflare/workers-types';
-import { handleJsonp } from '../../src/handleJsonp';
+import { handleJsonp } from './handleJsonp';
 
-export async function onRequest(pageContext: PagesFunction) {
+export async function api(req: Request) {
 
-    const cf = pageContext.request.cf;
+    const cf = req.cf;
 
-    return handleJsonp(pageContext, {
-        "success": true,
+    return handleJsonp(req, {
+        "success": cf ? true : false,
         "message": "OK",
-        "country": cf.country,
-        "city": cf.city,
-        "latitude": cf.latitude,
-        "longitude": cf.longitude,
-        "text": `${cf.city}, ${cf.region}, ${cf.country}`,
-        "iata": cf.colo,
-        "TZ": cf.timezone,
+        "country": cf?.country,
+        "city": cf?.city,
+        "latitude": cf?.latitude,
+        "longitude": cf?.longitude,
+        "text": cf ? `${cf.city}, ${cf.region}, ${cf.country}` : "No cf data",
+        "iata": cf?.colo,
+        "TZ": cf?.timezone,
         "raw": cf,
     });
 }

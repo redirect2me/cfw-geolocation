@@ -1,7 +1,7 @@
 import { PagesFunction } from '@cloudflare/workers-types';
 
-function getCallback(ctx: PagesFunction): string | null {
-    const callback = new URL(ctx.request.url).searchParams.get('callback');
+function getCallback(req: Request): string | null {
+    const callback = new URL(req.url).searchParams.get("callback");
     if (!callback) {
         return null;
     }
@@ -12,9 +12,9 @@ function getCallback(ctx: PagesFunction): string | null {
     return null;
 }
 
-export function handleJsonp(ctx: PagesFunction, data: Object) {
+export function handleJsonp(req: Request, data: Object) {
 
-    const callback = getCallback(ctx);
+    const callback = getCallback(req);
     if (callback) {
         return new Response(`${callback}(${JSON.stringify(data)});`, {
             headers: { 

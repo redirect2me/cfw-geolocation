@@ -9,3 +9,4 @@ server
 tmp/
 _tmp/
 *.tmp
+.wrangler
