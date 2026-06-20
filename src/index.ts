@@ -18,16 +18,16 @@ export async function index(req: Request) {
             Determine your real (physical) location based on your IP address, powered by CloudFlare Workers.
         </p>
         <p>
-            Your IP address: ${req.headers.get('CF-Connecting-IP') }
+            Your IP address: ${req.headers.get("CF-Connecting-IP")}
         </p>
         <p>
-            Country: ${req.cf.country}<br/>
-            Region: ${req.cf.region}<br/>
-            City: ${req.cf.city}<br/>
-            Latitude/Longitude: ${req.cf.latitude},
-              ${req.cf.longitude}<br/>
-            Timezone: ${req.cf.timezone}<br/>
-            Airport: ${req.cf.colo}<br/>
+            Country: ${req.cf?.country || "(not set)"}<br/>
+            Region: ${req.cf?.region || "(not set)"}<br/>
+            City: ${req.cf?.city || "(not set)"}<br/>
+            Latitude/Longitude: ${req.cf?.latitude || "(not set)"},
+              ${req.cf?.longitude || "(not set)"}<br/>
+            Timezone: ${req.cf?.timezone || "(not set)"}<br/>
+            Airport: ${req.cf?.colo || "(not set)"}<br/>
 
         </p>
         <details><summary>Raw Data</summary>
