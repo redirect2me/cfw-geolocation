@@ -1,6 +1,6 @@
 
 
-export async function index(req: Request) {
+export async function index(req:any) {
   const html = `<html>
     <head>
         <meta charset="utf-8">
